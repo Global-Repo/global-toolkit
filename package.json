@@ -1,5 +1,5 @@
 {
-  "name": "pancake-toolkit",
+  "name": "global-toolkit",
   "version": "1.0.0",
   "description": "Pancake frontend packages",
   "private": true,
@@ -8,13 +8,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pancakeswap/pancake-toolkit.git"
+    "url": "git+https://github.com/Global-Repo/global-uikit.git"
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pancakeswap/pancake-toolkit/issues"
+    "url": "https://github.com/Global-Repo/global-uikit/issues"
   },
-  "homepage": "https://github.com/pancakeswap/pancake-toolkit#readme",
+  "homepage": "https://github.com/Global-Repo/global-uikit#readme",
   "scripts": {
     "build": "lerna run build",
     "test": "lerna run test",
