@@ -1,6 +1,6 @@
 {
   "name": "@duhd4h/global-token-lists",
-  "version": "2.16.9",
+  "version": "2.16.10",
   "main": "dist/index.js",
   "type": "module",
   "license": "MIT",
@@ -42,5 +42,5 @@
     "rollup": "^2.47.0",
     "ts-jest": "^26.5.6"
   },
-  "gitHead": "637ff8a6c6444700eb2191516bc4df56451e2ca8"
+  "gitHead": "fee04578fc4347f454394c9369be4c9edcf6cacd"
 }
