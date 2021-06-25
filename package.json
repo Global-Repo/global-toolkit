@@ -2,9 +2,8 @@
   "name": "@duhd4h/global-toolkit",
   "version": "1.0.16",
   "description": "Pancake frontend packages",
-  "private": false,
+  "private": true,
   "workspaces": [
-    ".",
     "packages/*"
   ],
   "repository": "https://github.com/Global-Repo/global-toolkit.git",
