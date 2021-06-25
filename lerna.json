@@ -1,14 +1,24 @@
 {
-  "packages": ["packages/*"],
+  "packages": [
+    "packages/*"
+  ],
   "version": "independent",
   "npmClient": "yarn",
   "workspaces": true,
-  "ignoreChanges": ["**/__tests__/**", "**/*.md", "**/.storybook/**"],
+  "ignoreChanges": [
+    "**/__tests__/**",
+    "**/*.md",
+    "**/.storybook/**"
+  ],
   "command": {
     "version": {
       "conventionalCommits": true,
       "message": "chore(release): Publish",
-      "allowBranch": ["main","master", "staging"]
+      "allowBranch": [
+        "main",
+        "master",
+        "staging"
+      ]
     }
   }
 }

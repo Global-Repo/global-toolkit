@@ -1,17 +1,18 @@
 {
-  "name": "@duhd4h/global-uikit",
-  "version": "1.0.15",
+  "name": "@duhd4h/global-toolkit",
+  "version": "1.0.16",
   "description": "Pancake frontend packages",
   "private": false,
   "workspaces": [
+    ".",
     "packages/*"
   ],
-  "repository": "https://github.com/Global-Repo/global-uikit.git",
+  "repository": "https://github.com/Global-Repo/global-toolkit.git",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Global-Repo/global-uikit/issues"
+    "url": "https://github.com/Global-Repo/global-toolkit/issues"
   },
-  "homepage": "https://github.com/Global-Repo/global-uikit#readme",
+  "homepage": "https://github.com/Global-Repo/global-toolkit#readme",
   "scripts": {
     "build": "lerna run build",
     "test": "lerna run test",
