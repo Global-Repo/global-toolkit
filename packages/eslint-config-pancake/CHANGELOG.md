@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.9](https://github.com/Global-Repo/global-uikit/tree/master/packages/eslint-config-pancake/compare/@duhd4h/eslint-config-global@1.1.8...@duhd4h/eslint-config-global@1.1.9) (2021-06-25)
+
+**Note:** Version bump only for package @duhd4h/eslint-config-global
+
+
+
+
+
 ## [1.1.8](https://github.com/Global-Repo/global-uikit/tree/master/packages/eslint-config-pancake/compare/@duhd4h/eslint-config-global@1.1.7...@duhd4h/eslint-config-global@1.1.8) (2021-06-25)
 
 **Note:** Version bump only for package @duhd4h/eslint-config-global

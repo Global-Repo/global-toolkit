@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.11](https://github.com/Global-Repo/global-toolkit/compare/@duhd4h/global-token-lists@2.16.9...@duhd4h/global-token-lists@2.16.11) (2021-06-25)
+
+
+
+## 2.16.10 (2021-06-25)
+
+**Note:** Version bump only for package @duhd4h/global-token-lists
+
+
+
+
+
 ## [2.16.9](https://github.com/Global-Repo/global-uikit/compare/@duhd4h/global-token-lists@2.16.8...@duhd4h/global-token-lists@2.16.9) (2021-06-25)
 
 **Note:** Version bump only for package @duhd4h/global-token-lists
