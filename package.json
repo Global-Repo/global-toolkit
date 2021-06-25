@@ -1,6 +1,6 @@
 {
   "name": "global-toolkit",
-  "version": "1.0.1",
+  "version": "1.0.15",
   "description": "Pancake frontend packages",
   "private": false,
   "workspaces": [
