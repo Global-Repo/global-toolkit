@@ -1,7 +1,7 @@
 {
   "name": "@duhd4h/global-uikit",
-  "version": "1.0.10",
-  "description": "Set of UI components for pancake projects",
+  "version": "1.0.11",
+  "description": "Set of UI components for global projects",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -55,5 +55,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "d3167162503be4399f31af6f349fe77ef554bd64"
+  "gitHead": "637ff8a6c6444700eb2191516bc4df56451e2ca8"
 }

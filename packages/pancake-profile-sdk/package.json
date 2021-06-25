@@ -1,6 +1,6 @@
 {
   "name": "@duhd4h/global-profile-sdk",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -46,5 +46,5 @@
     "@types/js-cookie": "^2.2.6",
     "js-cookie": "^2.2.1"
   },
-  "gitHead": "d3167162503be4399f31af6f349fe77ef554bd64"
+  "gitHead": "637ff8a6c6444700eb2191516bc4df56451e2ca8"
 }
