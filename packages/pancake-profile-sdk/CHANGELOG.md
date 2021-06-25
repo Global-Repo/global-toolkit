@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.8](https://github.com/Global-Repo/global-uikit/tree/master/packages/pancake-profile-sdk/compare/@duhd4h/global-profile-sdk@0.1.6...@duhd4h/global-profile-sdk@0.1.8) (2021-06-25)
+
+**Note:** Version bump only for package @duhd4h/global-profile-sdk
+
+
+
+
+
 ## [0.1.6](https://github.com/Global-Repo/global-uikit/tree/master/packages/pancake-profile-sdk/compare/@duhd4h/global-profile-sdk@0.1.5...@duhd4h/global-profile-sdk@0.1.6) (2021-06-25)
 
 **Note:** Version bump only for package @duhd4h/global-profile-sdk
