@@ -5,6 +5,7 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "private": false,
   "files": [
     "dist"
   ],
@@ -53,5 +54,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "75c172fd2fc55dee2f336034602d7b158e6f74d3"
 }
