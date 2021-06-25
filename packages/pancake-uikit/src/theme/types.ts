@@ -47,6 +47,7 @@ export type Colors = {
   failure: string;
   warning: string;
   cardBorder: string;
+  borderColor: string;
   contrast: string;
   dropdown: string;
   dropdownDeep: string;
@@ -60,7 +61,6 @@ export type Colors = {
   textDisabled: string;
   textSubtle: string;
   disabled: string;
-  borderColor: string;
 
   // Gradients
   gradients: Gradients;
