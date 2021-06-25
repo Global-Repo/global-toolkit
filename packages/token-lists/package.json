@@ -32,7 +32,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.14.1",
     "@babel/preset-typescript": "^7.13.0",
-    "@pancakeswap-libs/eslint-config-pancake": "^1.0.1",
+    "@duhd4h/eslint-config-global": "^1.1.10",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-typescript": "^8.2.1",
     "@types/jest": "^26.0.23",
