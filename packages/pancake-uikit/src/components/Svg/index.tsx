@@ -36,7 +36,6 @@ export { default as LaurelLeftIcon } from "./Icons/LaurelLeft";
 export { default as LaurelRightIcon } from "./Icons/LaurelRight";
 export { default as ListViewIcon } from "./Icons/ListView";
 export { default as LogoIcon } from "./Icons/Logo";
-export { default as LogoRoundIcon } from "./Icons/LogoRound";
 export { default as MedalBronzeIcon } from "./Icons/MedalBronze";
 export { default as MedalGoldIcon } from "./Icons/MedalGold";
 export { default as MedalPurpleIcon } from "./Icons/MedalPurple";
