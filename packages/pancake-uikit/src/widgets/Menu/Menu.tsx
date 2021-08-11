@@ -4,12 +4,17 @@ import throttle from "lodash/throttle";
 import Overlay from "../../components/Overlay/Overlay";
 import Flex from "../../components/Box/Flex";
 import { useMatchBreakpoints } from "../../hooks";
-import Logo from "./components/Logo";
 import Panel from "./components/Panel";
 import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
-import Avatar from "./components/Avatar";
-import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
+import {
+  MENU_HEIGHT,
+  SIDEBAR_WIDTH_REDUCED,
+  SIDEBAR_WIDTH_FULL,
+} from "./config";
+import LangSelector from "./components/LangSelector";
+import { HamburgerCloseIcon, HamburgerIcon } from "./icons";
+import MenuButton from "./components/MenuButton";
 
 const Wrapper = styled.div`
   position: relative;
@@ -24,13 +29,12 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 8px;
   padding-right: 16px;
   width: 100%;
   height: ${MENU_HEIGHT}px;
   background-color: ${({ theme }) => theme.nav.background};
   border-bottom: solid 2px rgba(133, 133, 133, 0.1);
-  z-index: 20;
+  z-index: 10;
   transform: translate3d(0, 0, 0);
 `;
 
@@ -47,8 +51,12 @@ const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   max-width: 100%;
 
   ${({ theme }) => theme.mediaQueries.nav} {
-    margin-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
-    max-width: ${({ isPushed }) => `calc(100% - ${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px)`};
+    margin-left: ${({ isPushed }) =>
+      `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
+    max-width: ${({ isPushed }) =>
+      `calc(100% - ${
+        isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED
+      }px)`};
   }
 `;
 
@@ -84,7 +92,9 @@ const Menu: React.FC<NavProps> = ({
   useEffect(() => {
     const handleScroll = () => {
       const currentOffset = window.pageYOffset;
-      const isBottomOfPage = window.document.body.clientHeight === currentOffset + window.innerHeight;
+      const isBottomOfPage =
+        window.document.body.clientHeight ===
+        currentOffset + window.innerHeight;
       const isTopOfPage = currentOffset === 0;
       // Always show the menu when user reach the top
       if (isTopOfPage) {
@@ -110,22 +120,33 @@ const Menu: React.FC<NavProps> = ({
     };
   }, []);
 
-  // Find the home link if provided
-  const homeLink = links.find((link) => link.label === "Home");
-
   return (
     <Wrapper>
       <StyledNav showMenu={showMenu}>
-        <Logo
-          isPushed={isPushed}
-          togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
-          isDark={isDark}
-          href={homeLink?.href ?? "/"}
-        />
+        {isMobile ? (
+          <MenuButton
+            aria-label="Toggle menu"
+            onClick={() => setIsPushed(true)}
+            mr="24px"
+          >
+            {isPushed ? (
+              <HamburgerCloseIcon width="24px" color="textSubtle" />
+            ) : (
+              <HamburgerIcon width="24px" color="textSubtle" />
+            )}
+          </MenuButton>
+        ) : (
+          <Flex />
+        )}
         {!!login && !!logout && (
-          <Flex>
+          <Flex alignItems="center">
+            <LangSelector
+              currentLang={currentLang}
+              langs={langs}
+              setLang={setLang}
+            />
             <UserBlock account={account} login={login} logout={logout} />
-            {profile && <Avatar profile={profile} />}
+            {/*profile && <Avatar profile={profile} />*/}
           </Flex>
         )}
       </StyledNav>
@@ -146,7 +167,11 @@ const Menu: React.FC<NavProps> = ({
         <Inner isPushed={isPushed} showMenu={showMenu}>
           {children}
         </Inner>
-        <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
+        <MobileOnlyOverlay
+          show={isPushed}
+          onClick={() => setIsPushed(false)}
+          role="presentation"
+        />
       </BodyWrapper>
     </Wrapper>
   );

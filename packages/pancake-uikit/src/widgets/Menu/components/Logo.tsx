@@ -3,7 +3,11 @@ import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 import { LogoIcon } from "../../../components/Svg";
 import Flex from "../../../components/Box/Flex";
-import { HamburgerIcon, HamburgerCloseIcon, LogoIcon as LogoWithText } from "../icons";
+import {
+  HamburgerIcon,
+  HamburgerCloseIcon,
+  LogoIcon as LogoWithText,
+} from "../icons";
 import MenuButton from "./MenuButton";
 
 interface Props {
@@ -53,12 +57,16 @@ const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href }) => {
   const innerLogo = (
     <>
       <LogoIcon className="mobile-icon" />
-      <LogoWithText className="desktop-icon" isDark={isDark} />
+      <LogoWithText
+        className="desktop-icon"
+        isDark={isDark}
+        isPushed={isPushed}
+      />
     </>
   );
 
   return (
-    <Flex>
+    <Flex flexDirection="column">
       <MenuButton aria-label="Toggle menu" onClick={togglePush} mr="24px">
         {isPushed ? (
           <HamburgerCloseIcon width="24px" color="textSubtle" />
@@ -67,11 +75,11 @@ const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href }) => {
         )}
       </MenuButton>
       {isAbsoluteUrl ? (
-        <StyledLink as="a" href={href} aria-label="Pancake home page">
+        <StyledLink as="a" href={href} aria-label="BeGlobal home page">
           {innerLogo}
         </StyledLink>
       ) : (
-        <StyledLink to={href} aria-label="Pancake home page">
+        <StyledLink to={href} aria-label="BeGlobal home page">
           {innerLogo}
         </StyledLink>
       )}
@@ -79,4 +87,7 @@ const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href }) => {
   );
 };
 
-export default React.memo(Logo, (prev, next) => prev.isPushed === next.isPushed && prev.isDark === next.isDark);
+export default React.memo(
+  Logo,
+  (prev, next) => prev.isPushed === next.isPushed && prev.isDark === next.isDark
+);
