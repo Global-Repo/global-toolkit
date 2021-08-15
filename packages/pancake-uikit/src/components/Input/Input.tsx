@@ -8,7 +8,11 @@ interface StyledInputProps extends InputProps {
 /**
  * Priority: Warning --> Success
  */
-const getBoxShadow = ({ isSuccess = false, isWarning = false, theme }: StyledInputProps) => {
+const getBoxShadow = ({
+  isSuccess = false,
+  isWarning = false,
+  theme,
+}: StyledInputProps) => {
   if (isWarning) {
     return theme.shadows.warning;
   }
@@ -35,7 +39,7 @@ const getHeight = ({ scale = scales.MD }: StyledInputProps) => {
 const Input = styled.input<InputProps>`
   background-color: ${({ theme }) => theme.colors.input};
   border: 0;
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: ${getBoxShadow};
   color: ${({ theme }) => theme.colors.text};
   display: block;

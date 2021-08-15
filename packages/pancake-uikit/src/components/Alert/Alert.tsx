@@ -26,7 +26,7 @@ const getThemeColor = ({ theme, variant = variants.INFO }: ThemedIconLabel) => {
       return theme.colors.success;
     case variants.INFO:
     default:
-      return theme.colors.secondary;
+      return theme.colors.info;
   }
 };
 
@@ -56,7 +56,8 @@ const Details = styled.div<{ hasHandler: boolean }>`
   flex: 1;
   padding-bottom: 12px;
   padding-left: 12px;
-  padding-right: ${({ hasHandler }) => (hasHandler ? `${withHandlerSpacing}px` : "12px")};
+  padding-right: ${({ hasHandler }) =>
+    hasHandler ? `${withHandlerSpacing}px` : "12px"};
   padding-top: 12px;
 `;
 
@@ -71,7 +72,8 @@ const StyledAlert = styled(Flex)`
   position: relative;
   background-color: ${({ theme }) => theme.alert.background};
   border-radius: 8px;
-  box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1),
+    0px 1px 1px rgba(0, 0, 0, 0.05);
 `;
 
 const Alert: React.FC<AlertProps> = ({ title, children, variant, onClick }) => {
@@ -84,7 +86,11 @@ const Alert: React.FC<AlertProps> = ({ title, children, variant, onClick }) => {
       </IconLabel>
       <Details hasHandler={!!onClick}>
         <Text bold>{title}</Text>
-        {typeof children === "string" ? <Text as="p">{children}</Text> : children}
+        {typeof children === "string" ? (
+          <Text as="p">{children}</Text>
+        ) : (
+          children
+        )}
       </Details>
       {onClick && (
         <CloseHandler>
