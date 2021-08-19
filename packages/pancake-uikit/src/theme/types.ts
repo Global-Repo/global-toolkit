@@ -62,6 +62,7 @@ export type Colors = {
   textDisabled: string;
   textSubtle: string;
   disabled: string;
+  navigationBackground: string;
 
   // Gradients
   gradients: Gradients;
@@ -69,6 +70,7 @@ export type Colors = {
   // Additional colors
   binance: string;
   overlay: string;
+  logo: string;
 };
 
 export type ZIndices = {
