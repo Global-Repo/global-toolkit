@@ -5,7 +5,7 @@ export const baseColors = {
   primary: "#ffd700",
   primaryBright: "#ffe033",
   primaryDark: "#ccad00",
-  secondary: "#800000",
+  secondary: "#ff0100",
   success: "#85cc00",
   warning: "#f58b00",
   info: "#54c2cc",
@@ -14,7 +14,6 @@ export const baseColors = {
 export const additionalColors = {
   binance: "#F0B90B",
   overlay: "#090e1a",
-  logo: "#ff0100",
 };
 
 export const lightColors: Colors = {
