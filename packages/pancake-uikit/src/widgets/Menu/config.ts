@@ -15,7 +15,7 @@ export const status = {
   },
 };
 
-export const links = [
+export const moreLinks = [
   {
     label: "Home",
     icon: "HomeIcon",
@@ -136,6 +136,33 @@ export const links = [
         href: "https://pancakeswap.medium.com",
       },
     ],
+  },
+];
+
+export const links = [
+  {
+    label: "Farms",
+    href: "/farms",
+  },
+  {
+    label: "Pools",
+    href: "/pools",
+  },
+  {
+    label: "Vaults Globals",
+    href: "/vaults",
+  },
+  {
+    label: "Exchange",
+    href: "/exchange",
+  },
+  {
+    label: "Liquidity",
+    href: "/liquidity",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
   },
 ];
 

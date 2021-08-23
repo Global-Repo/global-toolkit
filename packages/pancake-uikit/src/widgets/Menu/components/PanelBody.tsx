@@ -47,8 +47,8 @@ const PanelBody: React.FC<Props> = ({
         href={homeLink?.href ?? "/"}
       />
       {links.map((entry) => {
-        const Icon = Icons[entry.icon];
-        const iconElement = <Icon width="24px" mr="8px" />;
+        const Icon = entry.icon ? Icons[entry.icon] : null;
+        const iconElement = Icon ? <Icon width="24px" mr="8px" /> : undefined;
         const calloutClass = entry.calloutClass
           ? entry.calloutClass
           : undefined;
@@ -67,7 +67,7 @@ const PanelBody: React.FC<Props> = ({
               key={entry.label}
               isPushed={isPushed}
               pushNav={pushNav}
-              icon={iconElement}
+              icon={iconElement || <div />}
               label={entry.label}
               status={entry.status}
               initialOpenState={initialOpenState}

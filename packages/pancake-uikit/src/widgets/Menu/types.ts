@@ -38,9 +38,9 @@ export interface MenuSubEntry {
 
 export interface MenuEntry {
   label: string;
-  icon: string;
+  icon?: string;
   items?: MenuSubEntry[];
-  href?: string;
+  href: string;
   calloutClass?: string;
   initialOpenState?: boolean;
   status?: LinkStatus;

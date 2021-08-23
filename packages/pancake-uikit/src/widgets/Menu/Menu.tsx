@@ -12,9 +12,10 @@ import {
   SIDEBAR_WIDTH_REDUCED,
   SIDEBAR_WIDTH_FULL,
 } from "./config";
-import LangSelector from "./components/LangSelector";
 import { HamburgerCloseIcon, HamburgerIcon } from "./icons";
 import MenuButton from "./components/MenuButton";
+import Logo from "../../components/Svg/Icons/Logo";
+import TopMenu from "./components/TopMenu";
 
 const Wrapper = styled.div`
   position: relative;
@@ -32,9 +33,22 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   padding-right: 16px;
   width: 100%;
   height: ${MENU_HEIGHT}px;
-  background-color: ${({ theme }) => theme.colors.navigationBackground};
+  background-color: ${({ theme }) => theme.nav.background};
   z-index: 10;
   transform: translate3d(0, 0, 0);
+`;
+
+const DesktopNavigation = styled.div`
+  display: flex;
+  width: 100%;
+  margin: 0 160px;
+  align-items: center;
+`;
+
+const DesktopBodyWrapper = styled.div`
+  position: relative;
+  display: flex;
+  margin-top: ${MENU_HEIGHT}px;
 `;
 
 const BodyWrapper = styled.div`
@@ -119,59 +133,71 @@ const Menu: React.FC<NavProps> = ({
     };
   }, []);
 
+  const walletButton = !!login && !!logout && (
+    <UserBlock account={account} login={login} logout={logout} />
+  );
+
+  const mobileNavigation = (
+    <MenuButton
+      aria-label="Toggle menu"
+      onClick={() => setIsPushed(true)}
+      mr="24px"
+    >
+      {isPushed ? (
+        <HamburgerCloseIcon width="24px" color="textSubtle" />
+      ) : (
+        <HamburgerIcon width="24px" color="textSubtle" />
+      )}
+    </MenuButton>
+  );
+
+  // Find the home link if provided
+  const homeLink = links.find((link) => link.label === "Home");
+
+  const desktopNavigation = (
+    <DesktopNavigation>
+      <Flex>
+        <Logo width={50} href={homeLink?.href ?? "/"} />
+      </Flex>
+      <Flex flexGrow={1}>
+        <TopMenu links={links} />
+      </Flex>
+      <Flex>{walletButton}</Flex>
+    </DesktopNavigation>
+  );
+
   return (
     <Wrapper>
       <StyledNav showMenu={showMenu}>
-        {isMobile ? (
-          <MenuButton
-            aria-label="Toggle menu"
-            onClick={() => setIsPushed(true)}
-            mr="24px"
-          >
-            {isPushed ? (
-              <HamburgerCloseIcon width="24px" color="textSubtle" />
-            ) : (
-              <HamburgerIcon width="24px" color="textSubtle" />
-            )}
-          </MenuButton>
-        ) : (
-          <Flex />
-        )}
-        {!!login && !!logout && (
-          <Flex alignItems="center">
-            <LangSelector
-              currentLang={currentLang}
-              langs={langs}
-              setLang={setLang}
-            />
-            <UserBlock account={account} login={login} logout={logout} />
-            {/*profile && <Avatar profile={profile} />*/}
-          </Flex>
-        )}
+        {isMobile ? mobileNavigation : desktopNavigation}
       </StyledNav>
-      <BodyWrapper>
-        <Panel
-          isPushed={isPushed}
-          isMobile={isMobile}
-          showMenu={showMenu}
-          isDark={isDark}
-          toggleTheme={toggleTheme}
-          langs={langs}
-          setLang={setLang}
-          currentLang={currentLang}
-          cakePriceUsd={cakePriceUsd}
-          pushNav={setIsPushed}
-          links={links}
-        />
-        <Inner isPushed={isPushed} showMenu={showMenu}>
-          {children}
-        </Inner>
-        <MobileOnlyOverlay
-          show={isPushed}
-          onClick={() => setIsPushed(false)}
-          role="presentation"
-        />
-      </BodyWrapper>
+      {isMobile ? (
+        <BodyWrapper>
+          <Panel
+            isPushed={isPushed}
+            isMobile={isMobile}
+            showMenu={showMenu}
+            isDark={isDark}
+            toggleTheme={toggleTheme}
+            langs={langs}
+            setLang={setLang}
+            currentLang={currentLang}
+            cakePriceUsd={cakePriceUsd}
+            pushNav={setIsPushed}
+            links={links}
+          />
+          <Inner isPushed={isPushed} showMenu={showMenu}>
+            {children}
+          </Inner>
+          <MobileOnlyOverlay
+            show={isPushed}
+            onClick={() => setIsPushed(false)}
+            role="presentation"
+          />
+        </BodyWrapper>
+      ) : (
+        <DesktopBodyWrapper>{children}</DesktopBodyWrapper>
+      )}
     </Wrapper>
   );
 };

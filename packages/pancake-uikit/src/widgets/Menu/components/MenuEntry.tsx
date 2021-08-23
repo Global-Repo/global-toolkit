@@ -34,7 +34,7 @@ const MenuEntry = styled.div<Props>`
   height: ${MENU_ENTRY_HEIGHT}px;
   padding: ${({ secondary }) => (secondary ? "0 32px" : "0 16px")};
   font-size: ${({ secondary }) => (secondary ? "14px" : "16px")};
-  font-weight: ${({ isActive }) => (isActive ? "bold" : "normal")};
+  font-weight: bold;
   background-color: ${({ secondary, theme, isActive }) =>
     isActive
       ? theme.colors.tertiary
@@ -55,7 +55,7 @@ const MenuEntry = styled.div<Props>`
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.tertiary};
+    text-decoration: underline;
   }
 
   // Safari fix
