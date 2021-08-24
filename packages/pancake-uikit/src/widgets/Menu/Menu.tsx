@@ -11,24 +11,26 @@ import {
   MENU_HEIGHT,
   SIDEBAR_WIDTH_REDUCED,
   SIDEBAR_WIDTH_FULL,
+  CONTENT_MAX_WIDTH,
 } from "./config";
 import { HamburgerCloseIcon, HamburgerIcon } from "./icons";
 import MenuButton from "./components/MenuButton";
 import Logo from "../../components/Svg/Icons/Logo";
 import TopMenu from "./components/TopMenu";
+import { Link } from "../../components/Link";
 
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
 `;
 
-const StyledNav = styled.nav<{ showMenu: boolean }>`
+const StyledNav = styled.nav<{ showMenu: boolean; isMobile: boolean }>`
   position: fixed;
   top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
   left: 0;
   transition: top 0.2s;
   display: flex;
-  justify-content: space-between;
+  justify-content: ${({ isMobile }) => (isMobile ? "space-between" : "center")};
   align-items: center;
   padding-right: 16px;
   width: 100%;
@@ -41,7 +43,7 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
 const DesktopNavigation = styled.div`
   display: flex;
   width: 100%;
-  margin: 0 160px;
+  max-width: ${CONTENT_MAX_WIDTH}px;
   align-items: center;
 `;
 
@@ -138,17 +140,20 @@ const Menu: React.FC<NavProps> = ({
   );
 
   const mobileNavigation = (
-    <MenuButton
-      aria-label="Toggle menu"
-      onClick={() => setIsPushed(true)}
-      mr="24px"
-    >
-      {isPushed ? (
-        <HamburgerCloseIcon width="24px" color="textSubtle" />
-      ) : (
-        <HamburgerIcon width="24px" color="textSubtle" />
-      )}
-    </MenuButton>
+    <>
+      <MenuButton
+        aria-label="Toggle menu"
+        onClick={() => setIsPushed(true)}
+        mr="24px"
+      >
+        {isPushed ? (
+          <HamburgerCloseIcon width="24px" color="textSubtle" />
+        ) : (
+          <HamburgerIcon width="24px" color="textSubtle" />
+        )}
+      </MenuButton>
+      {walletButton}
+    </>
   );
 
   // Find the home link if provided
@@ -156,8 +161,10 @@ const Menu: React.FC<NavProps> = ({
 
   const desktopNavigation = (
     <DesktopNavigation>
-      <Flex>
-        <Logo width={50} href={homeLink?.href ?? "/"} />
+      <Flex padding="8px">
+        <Link href={homeLink?.href ?? "/"}>
+          <Logo width={56} />
+        </Link>
       </Flex>
       <Flex flexGrow={1}>
         <TopMenu links={links} />
@@ -168,7 +175,7 @@ const Menu: React.FC<NavProps> = ({
 
   return (
     <Wrapper>
-      <StyledNav showMenu={showMenu}>
+      <StyledNav showMenu={showMenu} isMobile={isMobile}>
         {isMobile ? mobileNavigation : desktopNavigation}
       </StyledNav>
       {isMobile ? (
