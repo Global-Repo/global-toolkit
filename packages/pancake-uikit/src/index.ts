@@ -39,6 +39,9 @@ export * from "./widgets/Menu";
 export * from "./widgets/Toast";
 export * from "./widgets/WalletModal";
 
+// Widgets component
+export * from "./widgets/Menu/components/SocialLinks";
+
 // Theme
 export { default as ResetCSS } from "./ResetCSS";
 export * from "./theme";
