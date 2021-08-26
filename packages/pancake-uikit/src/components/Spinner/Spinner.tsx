@@ -12,14 +12,9 @@ const rotate = keyframes`
   }
 `;
 
-const Container = styled.div`
-  position: relative;
-`;
+const Container = styled.div``;
 
 const RotatingLogoIcon = styled(Logo)`
-  position: absolute;
-  top: 0;
-  left: 0;
   animation: ${rotate} 2s linear infinite;
   transform: translate3d(0, 0, 0);
 `;
