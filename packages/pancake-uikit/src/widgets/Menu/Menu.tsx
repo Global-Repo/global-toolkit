@@ -18,13 +18,18 @@ import MenuButton from "./components/MenuButton";
 import Logo from "../../components/Svg/Icons/Logo";
 import TopMenu from "./components/TopMenu";
 import { Link } from "../../components/Link";
+import { darkColors } from "../../theme";
 
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
 `;
 
-const StyledNav = styled.nav<{ showMenu: boolean; isMobile: boolean }>`
+const StyledNav = styled.nav<{
+  showMenu: boolean;
+  isMobile: boolean;
+  backgroundColor: string;
+}>`
   position: fixed;
   top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
   left: 0;
@@ -35,7 +40,7 @@ const StyledNav = styled.nav<{ showMenu: boolean; isMobile: boolean }>`
   padding-right: 16px;
   width: 100%;
   height: ${MENU_HEIGHT}px;
-  background-color: ${({ theme }) => theme.nav.background};
+  background-color: ${({ backgroundColor }) => backgroundColor};
   z-index: 10;
   transform: translate3d(0, 0, 0);
 `;
@@ -43,7 +48,7 @@ const StyledNav = styled.nav<{ showMenu: boolean; isMobile: boolean }>`
 const DesktopNavigation = styled.div`
   display: flex;
   width: 100%;
-  max-width: ${CONTENT_MAX_WIDTH}px;
+  padding: 32px;
   align-items: center;
 `;
 
@@ -101,7 +106,7 @@ const Menu: React.FC<NavProps> = ({
   const { isXl } = useMatchBreakpoints();
   const isMobile = isXl === false;
   const [isPushed, setIsPushed] = useState(!isMobile);
-  const [showMenu, setShowMenu] = useState(true);
+  const [menuBackgroundColor, setMenuBackgroundColor] = useState("transparent");
   const refPrevOffset = useRef(window.pageYOffset);
 
   useEffect(() => {
@@ -111,19 +116,10 @@ const Menu: React.FC<NavProps> = ({
         window.document.body.clientHeight ===
         currentOffset + window.innerHeight;
       const isTopOfPage = currentOffset === 0;
-      // Always show the menu when user reach the top
       if (isTopOfPage) {
-        setShowMenu(true);
-      }
-      // Avoid triggering anything at the bottom because of layout shift
-      else if (!isBottomOfPage) {
-        if (currentOffset < refPrevOffset.current) {
-          // Has scroll up
-          setShowMenu(true);
-        } else {
-          // Has scroll down
-          setShowMenu(false);
-        }
+        setMenuBackgroundColor("transparent");
+      } else {
+        setMenuBackgroundColor(darkColors.background);
       }
       refPrevOffset.current = currentOffset;
     };
@@ -175,7 +171,11 @@ const Menu: React.FC<NavProps> = ({
 
   return (
     <Wrapper>
-      <StyledNav showMenu={showMenu} isMobile={isMobile}>
+      <StyledNav
+        showMenu
+        isMobile={isMobile}
+        backgroundColor={menuBackgroundColor}
+      >
         {isMobile ? mobileNavigation : desktopNavigation}
       </StyledNav>
       {isMobile ? (
@@ -183,7 +183,7 @@ const Menu: React.FC<NavProps> = ({
           <Panel
             isPushed={isPushed}
             isMobile={isMobile}
-            showMenu={showMenu}
+            showMenu
             isDark={isDark}
             toggleTheme={toggleTheme}
             langs={langs}
@@ -193,7 +193,7 @@ const Menu: React.FC<NavProps> = ({
             pushNav={setIsPushed}
             links={links}
           />
-          <Inner isPushed={isPushed} showMenu={showMenu}>
+          <Inner isPushed={isPushed} showMenu>
             {children}
           </Inner>
           <MobileOnlyOverlay

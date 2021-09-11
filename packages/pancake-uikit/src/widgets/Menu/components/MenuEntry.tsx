@@ -21,9 +21,8 @@ const rainbowAnimation = keyframes`
 `;
 
 const LinkLabel = styled.div<{ isPushed: boolean }>`
-  color: ${({ isPushed, theme }) =>
-    isPushed ? theme.colors.textSubtle : "transparent"};
-  transition: color 0.4s;
+  /* color: ${({ isPushed, theme }) => (isPushed ? "white" : "transparent")}; */
+  // transition: color 0.4s;
   flex-grow: 1;
 `;
 
@@ -32,15 +31,16 @@ const MenuEntry = styled.div<Props>`
   display: flex;
   align-items: center;
   height: ${MENU_ENTRY_HEIGHT}px;
-  padding: ${({ secondary }) => (secondary ? "0 32px" : "0 16px")};
+  margin: ${({ secondary }) => (secondary ? "0 32px" : "0 16px")};
   font-size: ${({ secondary }) => (secondary ? "14px" : "16px")};
-  background-color: ${({ secondary, theme, isActive }) =>
-    isActive
-      ? theme.colors.tertiary
-      : secondary
-      ? theme.colors.background
-      : "transparent"};
-  color: white;
+  // text-decoration: ${({ isActive }) => (isActive ? "underline" : "none")};
+  border-bottom: ${({ isActive }) => (isActive ? "1px solid #0bc2d3" : "none")};
+  padding-bottom: -8px;
+  color: ${({ isActive }) => (isActive ? "#0bc2d3" : "white")};
+
+  &:hover {
+    color: #0bc2d3;
+  }
 
   a {
     display: flex;
@@ -53,19 +53,8 @@ const MenuEntry = styled.div<Props>`
     fill: ${({ theme }) => theme.colors.textSubtle};
   }
 
-  &:hover {
-    text-decoration: underline;
-  }
-
   // Safari fix
   flex-shrink: 0;
-
-  &.rainbow {
-    background-clip: text;
-    animation: ${rainbowAnimation} 3s ease-in-out infinite;
-    background: ${({ theme }) => theme.colors.gradients.bubblegum};
-    background-size: 400% 100%;
-  }
 `;
 MenuEntry.defaultProps = {
   secondary: false,

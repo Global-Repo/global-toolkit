@@ -35,12 +35,16 @@ const DropdownContent = styled.div<{ position: Position }>`
 
 const Container = styled.div`
   position: relative;
-  &:hover ${DropdownContent}, &:focus-within ${DropdownContent} {
+  &:hover ${DropdownContent} {
     display: flex;
   }
 `;
 
-const Dropdown: React.FC<DropdownProps> = ({ target, position = "bottom", children }) => {
+const Dropdown: React.FC<DropdownProps> = ({
+  target,
+  position = "bottom",
+  children,
+}) => {
   return (
     <Container>
       {target}
