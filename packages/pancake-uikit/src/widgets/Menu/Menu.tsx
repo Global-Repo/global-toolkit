@@ -119,7 +119,7 @@ const Menu: React.FC<NavProps> = ({
       if (isTopOfPage) {
         setMenuBackgroundColor("transparent");
       } else {
-        setMenuBackgroundColor(darkColors.background);
+        setMenuBackgroundColor("#1a2556");
       }
       refPrevOffset.current = currentOffset;
     };

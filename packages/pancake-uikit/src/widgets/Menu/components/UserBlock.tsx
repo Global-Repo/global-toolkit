@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../../../components/Button/Button";
 import { useWalletModal } from "../../WalletModal";
 import { Login } from "../../WalletModal/types";
+import { BorderGradientButton } from "../../../components/GradientButton";
 
 interface Props {
   account?: string;
@@ -17,24 +18,23 @@ const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
   );
   const accountEllipsis = account
     ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}`
-    : null;
+    : "";
 
   return (
     <div>
       {account ? (
-        <Button
-          scale="sm"
-          variant="secondary"
+        <BorderGradientButton
+          label={accountEllipsis}
           onClick={() => {
             onPresentAccountModal();
           }}
-        >
-          {accountEllipsis}
-        </Button>
+          fontSize="16px"
+          style={{ width: "160px" }}
+        />
       ) : (
         <Button
           scale="sm"
-          variant="primary"
+          variant="full_gradient"
           onClick={() => {
             onPresentConnectModal();
           }}
