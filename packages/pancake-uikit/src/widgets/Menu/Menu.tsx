@@ -11,14 +11,11 @@ import {
   MENU_HEIGHT,
   SIDEBAR_WIDTH_REDUCED,
   SIDEBAR_WIDTH_FULL,
-  CONTENT_MAX_WIDTH,
 } from "./config";
 import { HamburgerCloseIcon, HamburgerIcon } from "./icons";
 import MenuButton from "./components/MenuButton";
-import Logo from "../../components/Svg/Icons/Logo";
 import TopMenu from "./components/TopMenu";
-import { Link } from "../../components/Link";
-import { darkColors } from "../../theme";
+import GlobalPrice from "./components/GlobalPrice";
 
 const Wrapper = styled.div`
   position: relative;
@@ -49,6 +46,7 @@ const DesktopNavigation = styled.div`
   display: flex;
   width: 100%;
   padding: 32px;
+  padding-top: 56px;
   align-items: center;
 `;
 
@@ -98,7 +96,7 @@ const Menu: React.FC<NavProps> = ({
   langs,
   setLang,
   currentLang,
-  cakePriceUsd,
+  globalPriceUsd,
   links,
   profile,
   children,
@@ -152,15 +150,10 @@ const Menu: React.FC<NavProps> = ({
     </>
   );
 
-  // Find the home link if provided
-  const homeLink = links.find((link) => link.label === "Home");
-
   const desktopNavigation = (
     <DesktopNavigation>
       <Flex padding="8px">
-        <Link href={homeLink?.href ?? "/"}>
-          <Logo width={56} />
-        </Link>
+        <GlobalPrice globalPriceUsd={globalPriceUsd} isMobile={isMobile} />
       </Flex>
       <Flex flexGrow={1}>
         <TopMenu links={links} />
@@ -189,7 +182,7 @@ const Menu: React.FC<NavProps> = ({
             langs={langs}
             setLang={setLang}
             currentLang={currentLang}
-            cakePriceUsd={cakePriceUsd}
+            globalPriceUsd={globalPriceUsd}
             pushNav={setIsPushed}
             links={links}
           />

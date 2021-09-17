@@ -4,7 +4,7 @@ import { CogIcon } from "../../../components/Svg";
 import IconButton from "../../../components/Button/IconButton";
 import { MENU_ENTRY_HEIGHT } from "../config";
 import { PanelProps, PushedProps } from "../types";
-import CakePrice from "./CakePrice";
+import GlobalPrice from "./GlobalPrice";
 import ThemeSwitcher from "./ThemeSwitcher";
 import SocialLinks from "./SocialLinks";
 import LangSelector from "./LangSelector";
@@ -38,7 +38,7 @@ const PanelFooter: React.FC<Props> = ({
   pushNav,
   toggleTheme,
   isDark,
-  cakePriceUsd,
+  globalPriceUsd,
   currentLang,
   langs,
   setLang,
@@ -56,7 +56,7 @@ const PanelFooter: React.FC<Props> = ({
   return (
     <Container>
       <SocialEntry>
-        <CakePrice cakePriceUsd={cakePriceUsd} />
+        <GlobalPrice globalPriceUsd={globalPriceUsd} isMobile />
         <SocialLinks />
       </SocialEntry>
       <SettingsEntry />

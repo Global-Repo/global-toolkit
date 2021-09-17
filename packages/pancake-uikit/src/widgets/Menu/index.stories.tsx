@@ -31,7 +31,7 @@ const useProps = () => {
     langs,
     setLang: noop,
     currentLang: "EN",
-    cakePriceUsd: 0.023158668932877668,
+    globalPriceUsd: 0.023158668932877668,
     links,
     profile: null,
   });
@@ -47,7 +47,7 @@ const useProps = () => {
         langs,
         setLang: noop,
         currentLang: "EN",
-        cakePriceUsd: 0.023158668932877668,
+        globalPriceUsd: 0.023158668932877668,
         links,
         profile: null,
       });
@@ -238,7 +238,7 @@ export const WithNoProfile: React.FC = () => {
         langs={langs}
         setLang={noop}
         currentLang="EN"
-        cakePriceUsd={0.23158668932877668}
+        globalPriceUsd={0.23158668932877668}
         links={links}
         profile={{
           profileLink: "/profile",
@@ -286,7 +286,7 @@ export const WithProfile: React.FC = () => {
         langs={langs}
         setLang={noop}
         currentLang="EN"
-        cakePriceUsd={0.23158668932877668}
+        globalPriceUsd={0.23158668932877668}
         links={links}
         profile={{
           username: "pancakeswap",
@@ -351,7 +351,7 @@ export const WithSubmenuSelected: React.FC = () => {
         langs={langs}
         setLang={noop}
         currentLang="EN"
-        cakePriceUsd={0.23158668932877668}
+        globalPriceUsd={0.23158668932877668}
         links={links}
         profile={{
           username: "pancakeswap",
