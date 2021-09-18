@@ -6,7 +6,7 @@ const Wrapper = styled.div<{ colorLeft: string; colorRight: string }>`
   --b: 2px; /* border width*/
   --r: 16px; /* the radius */
 
-  display: flex;
+  display: inline-flex;
   position: relative;
   z-index: 0;
 
