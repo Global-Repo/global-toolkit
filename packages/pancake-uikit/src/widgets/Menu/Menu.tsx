@@ -46,7 +46,6 @@ const DesktopNavigation = styled.div`
   display: flex;
   width: 100%;
   padding: 32px;
-  padding-top: 56px;
   align-items: center;
 `;
 
