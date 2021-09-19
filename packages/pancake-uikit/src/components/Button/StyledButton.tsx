@@ -1,4 +1,4 @@
-import styled, { DefaultTheme } from "styled-components";
+import styled, { css, DefaultTheme } from "styled-components";
 import { space, layout, variant } from "styled-system";
 import { scaleVariants, styleVariants } from "./theme";
 import { BaseButtonProps } from "./types";
@@ -32,6 +32,32 @@ const getDisabledStyles = ({ $isLoading, theme }: TransientButtonProps) => {
     }
   `;
 };
+
+export const gradientShadow = css`
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    height: 120%;
+    width: 110%;
+    opacity: 0.8;
+    border-radius: 16px;
+
+    /* Declaring our shadow color inherit from the parent (button) */
+    background: inherit;
+
+    /* Blurring the element for shadow effect */
+    -webkit-filter: blur(6px);
+    -moz-filter: blur(6px);
+    -o-filter: blur(6px);
+    -ms-filter: blur(6px);
+    filter: blur(6px);
+
+    /* Transition for the magic */
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+`;
 
 /**
  * This is to get around an issue where if you use a Link component
@@ -80,6 +106,8 @@ const StyledButton = styled.button<BaseButtonProps>`
   })}
   ${layout}
   ${space}
+
+  ${(props) => props.hasShadow && gradientShadow};
 `;
 
 export default StyledButton;
