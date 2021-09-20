@@ -22,7 +22,7 @@ const rainbowAnimation = keyframes`
 
 const LinkLabel = styled.div<{ isPushed: boolean }>`
   /* color: ${({ isPushed, theme }) => (isPushed ? "white" : "transparent")}; */
-  // transition: color 0.4s;
+  transition: color 0.4s;
   flex-grow: 1;
 `;
 
@@ -33,9 +33,6 @@ const MenuEntry = styled.div<Props>`
   height: ${MENU_ENTRY_HEIGHT}px;
   margin: ${({ secondary }) => (secondary ? "0 32px" : "0 16px")};
   font-size: ${({ secondary }) => (secondary ? "14px" : "16px")};
-  // text-decoration: ${({ isActive }) => (isActive ? "underline" : "none")};
-  border-bottom: ${({ isActive }) => (isActive ? "1px solid #0bc2d3" : "none")};
-  padding-bottom: -8px;
   color: ${({ isActive }) => (isActive ? "#0bc2d3" : "white")};
 
   &:hover {
@@ -55,6 +52,12 @@ const MenuEntry = styled.div<Props>`
 
   // Safari fix
   flex-shrink: 0;
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    border-bottom: ${({ isActive }) =>
+      isActive ? "1px solid #0bc2d3" : "none"};
+    padding-bottom: -8px;
+  }
 `;
 MenuEntry.defaultProps = {
   secondary: false,

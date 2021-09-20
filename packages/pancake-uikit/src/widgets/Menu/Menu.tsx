@@ -16,6 +16,7 @@ import { HamburgerCloseIcon, HamburgerIcon } from "./icons";
 import MenuButton from "./components/MenuButton";
 import TopMenu from "./components/TopMenu";
 import GlobalPrice from "./components/GlobalPrice";
+import SocialLinks from "./components/SocialLinks";
 
 const Wrapper = styled.div`
   position: relative;
@@ -154,8 +155,12 @@ const Menu: React.FC<NavProps> = ({
       <Flex padding="8px">
         <GlobalPrice globalPriceUsd={globalPriceUsd} isMobile={isMobile} />
       </Flex>
+      {}
       <Flex flexGrow={1}>
         <TopMenu links={links} />
+      </Flex>
+      <Flex mr="16px" ml="16px">
+        <SocialLinks />
       </Flex>
       <Flex>{walletButton}</Flex>
     </DesktopNavigation>

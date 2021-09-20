@@ -13,7 +13,7 @@ const SocialLinks: React.FC = () => (
       const Icon = Icons[social.icon];
       const iconProps = {
         width: "24px",
-        color: "textSubtle",
+        color: "white",
         style: { cursor: "pointer" },
       };
       const mr = index < socials.length - 1 ? "24px" : 0;

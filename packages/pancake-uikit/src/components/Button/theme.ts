@@ -57,4 +57,9 @@ export const styleVariants = {
     background: "linear-gradient(90deg, #e94e2c, #529cd6)",
     color: "white",
   },
+  [variants.FULL_GRADIENT_CONNECT_WALLET]: {
+    background: "linear-gradient(90deg, #e52420, #ce850e)",
+    color: "white",
+    borderRadius: "16px",
+  },
 };

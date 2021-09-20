@@ -17,6 +17,7 @@ export const variants = {
   SUBTLE: "subtle",
   SUCCESS: "success",
   FULL_GRADIENT: "full_gradient",
+  FULL_GRADIENT_CONNECT_WALLET: "full_gradient_connect_wallet",
 } as const;
 
 export type Scale = typeof scales[keyof typeof scales];

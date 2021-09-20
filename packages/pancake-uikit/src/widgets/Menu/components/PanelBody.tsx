@@ -21,6 +21,7 @@ const Container = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   height: 100%;
+  padding-top: 8px;
 `;
 
 const PanelBody: React.FC<Props> = ({
@@ -83,6 +84,7 @@ const PanelBody: React.FC<Props> = ({
                     secondary
                     isActive={item.href === location.pathname}
                     onClick={handleClick}
+                    style={{ padding: "24px 0" }}
                   >
                     <MenuLink href={item.href}>
                       <LinkLabel isPushed={isPushed}>{item.label}</LinkLabel>
@@ -102,6 +104,7 @@ const PanelBody: React.FC<Props> = ({
             key={entry.label}
             isActive={entry.href === location.pathname}
             className={calloutClass}
+            style={{ padding: "24px 0" }}
           >
             <MenuLink href={entry.href} onClick={handleClick}>
               {iconElement}

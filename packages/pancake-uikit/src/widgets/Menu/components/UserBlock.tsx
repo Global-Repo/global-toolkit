@@ -42,12 +42,14 @@ const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
           }}
           fontSize="16px"
           style={{ width: "160px" }}
+          colorLeft="#e52420"
+          colorRight="#ce850e"
         />
       ) : (
         <ConnectWalletWrapper>
           <Button
             scale="sm"
-            variant="full_gradient"
+            variant="full_gradient_connect_wallet"
             onClick={() => {
               onPresentConnectModal();
             }}
