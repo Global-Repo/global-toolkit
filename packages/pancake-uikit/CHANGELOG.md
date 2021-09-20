@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.40](https://github.com/Global-Repo/global-uikit/tree/master/packages/pancake-uikit/compare/@duhd4h/global-uikit@1.0.39...@duhd4h/global-uikit@1.0.40) (2021-09-20)
+
+**Note:** Version bump only for package @duhd4h/global-uikit
+
+
+
+
+
 ## [1.0.39](https://github.com/Global-Repo/global-uikit/tree/master/packages/pancake-uikit/compare/@duhd4h/global-uikit@1.0.38...@duhd4h/global-uikit@1.0.39) (2021-09-19)
 
 **Note:** Version bump only for package @duhd4h/global-uikit
