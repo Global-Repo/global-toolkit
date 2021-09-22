@@ -38,4 +38,7 @@ export const styleVariants = {
   [variants.WARNING]: {
     backgroundColor: "warning",
   },
+  [variants.GRADIENT]: {
+    background: "linear-gradient(90deg, #e52420, #ce850e)",
+  },
 };

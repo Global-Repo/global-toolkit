@@ -24,6 +24,12 @@ export const Default: React.FC = () => {
       <Row>
         <GradientBorderBox style={{ width: "300px", height: "300px" }} />
       </Row>
+      <Row>
+        <GradientBorderBox
+          style={{ width: "300px", height: "300px" }}
+          borderWidth="10px"
+        />
+      </Row>
     </>
   );
 };

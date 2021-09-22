@@ -10,6 +10,7 @@ export const variants = {
   BINANCE: "binance",
   FAILURE: "failure",
   WARNING: "warning",
+  GRADIENT: "gradient",
 } as const;
 
 export const scales = {

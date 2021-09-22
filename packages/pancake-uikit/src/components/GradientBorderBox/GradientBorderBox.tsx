@@ -2,8 +2,12 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import { GradientBorderBoxProps } from "./types";
 
-const Wrapper = styled.div<{ colorLeft: string; colorRight: string }>`
-  --b: 2px; /* border width*/
+const Wrapper = styled.div<{
+  colorLeft: string;
+  colorRight: string;
+  borderWidth: string;
+}>`
+  --b: ${(props) => props.borderWidth}; /* border width*/
   --r: 16px; /* the radius */
 
   display: inline-flex;
@@ -40,9 +44,15 @@ const GradientBorderBox: FC<GradientBorderBoxProps> = ({
   colorRight = "#529cd6",
   style,
   children,
+  borderWidth = "2px",
 }) => {
   return (
-    <Wrapper colorLeft={colorLeft} colorRight={colorRight} style={style}>
+    <Wrapper
+      colorLeft={colorLeft}
+      colorRight={colorRight}
+      style={style}
+      borderWidth={borderWidth}
+    >
       {children}
     </Wrapper>
   );

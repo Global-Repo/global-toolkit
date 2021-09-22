@@ -28,14 +28,24 @@ export const Default: React.FC = () => {
               <Tag variant={variant} outline mr="8px">
                 {`${capitalize(variant)} Outline`}
               </Tag>
-              <Tag variant={variant} outline startIcon={<CommunityIcon />} mr="8px">
+              <Tag
+                variant={variant}
+                outline
+                startIcon={<CommunityIcon />}
+                mr="8px"
+              >
                 {`${capitalize(variant)} Icon Left`}
               </Tag>
               <Tag variant={variant} outline endIcon={<RemoveIcon />} mr="8px">
                 {`${capitalize(variant)} Icon Right`}
               </Tag>
-              <Tag variant={variant} outline startIcon={<CommunityIcon />} endIcon={<RemoveIcon />}>
-                {`${capitalize(variant)} Both`}
+              <Tag
+                variant={variant}
+                outline
+                startIcon={<CommunityIcon />}
+                endIcon={<RemoveIcon />}
+              >
+                <span>{`${capitalize(variant)} Both`}</span>
               </Tag>
             </Flex>
           </Box>
