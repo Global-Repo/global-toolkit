@@ -62,4 +62,8 @@ export const styleVariants = {
     color: "white",
     borderRadius: "16px",
   },
+  [variants.FULL_GRADIENT_POOL]: {
+    background: "linear-gradient(90deg, #c74793, #f39e21)",
+    color: "white",
+  },
 };

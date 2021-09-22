@@ -52,7 +52,7 @@ export const darkColors: Colors = {
   ...additionalColors,
   background: "#090e1a",
   navigationBackground: "#4d001f",
-  backgroundDisabled: "#3c3742",
+  backgroundDisabled: "#6f6f6e",
   backgroundAlt: "#27262c",
   cardBorder: "#383241",
   borderColor: "#383241",
@@ -64,7 +64,7 @@ export const darkColors: Colors = {
   inputSecondary: "#262130",
   tertiary: "#353547",
   text: "#F4EEFF",
-  textDisabled: "#666171",
+  textDisabled: "#bbbbbb",
   textSubtle: "#c0c0c0",
   disabled: "#524B63",
   gradients: {
