@@ -10,6 +10,8 @@ import { ButtonMenuItemProps } from "./types";
 
 interface InactiveButtonProps extends BaseButtonProps {
   forwardedAs: BaseButtonProps["as"];
+  leftColor?: string;
+  rightColor?: string;
 }
 
 const InactiveButton: PolymorphicComponent<
@@ -30,7 +32,11 @@ const InactiveGradientButton: PolymorphicComponent<
   InactiveButtonProps,
   "button"
 > = styled(Button)<InactiveButtonProps>`
-  background: linear-gradient(to right, #e94e2c, #529cd6);
+  background: linear-gradient(
+    to right,
+    ${(props) => props.leftColor},
+    ${(props) => props.rightColor}
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   &:hover:not(:disabled):not(:active) {
@@ -46,7 +52,24 @@ const ButtonMenuItem: PolymorphicComponent<ButtonMenuItemProps, "button"> = ({
 }: ButtonMenuItemProps) => {
   if (!isActive) {
     if (variant === variants.FULL_GRADIENT) {
-      return <InactiveGradientButton forwardedAs={as} {...props} />;
+      return (
+        <InactiveGradientButton
+          forwardedAs={as}
+          {...props}
+          leftColor="#e94e2c"
+          rightColor="#529cd6"
+        />
+      );
+    }
+    if (variant === variants.FULL_GRADIENT_ORANGE_YELLOW) {
+      return (
+        <InactiveGradientButton
+          forwardedAs={as}
+          {...props}
+          leftColor="#e52420"
+          rightColor="#ce850e"
+        />
+      );
     }
     return <InactiveButton forwardedAs={as} variant="tertiary" {...props} />;
   }

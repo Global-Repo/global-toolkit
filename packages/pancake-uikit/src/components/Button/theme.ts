@@ -66,4 +66,8 @@ export const styleVariants = {
     background: "linear-gradient(90deg, #c74793, #f39e21)",
     color: "white",
   },
+  [variants.FULL_GRADIENT_ORANGE_YELLOW]: {
+    background: "linear-gradient(90deg, #e52420, #ce850e)",
+    color: "white",
+  },
 };

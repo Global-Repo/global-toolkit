@@ -95,6 +95,24 @@ const ButtonMenu: React.FC<ButtonMenuProps> = ({
       </GradientBorderStyledButtonMenu>
     );
   }
+  if (variant === variants.FULL_GRADIENT_ORANGE_YELLOW) {
+    return (
+      <GradientBorderStyledButtonMenu
+        colorLeft="#e52420"
+        colorRight="#ce850e"
+        {...props}
+      >
+        {Children.map(children, (child: ReactElement, index) => {
+          return cloneElement(child, {
+            isActive: activeIndex === index,
+            onClick: onItemClick ? () => onItemClick(index) : undefined,
+            scale,
+            variant,
+          });
+        })}
+      </GradientBorderStyledButtonMenu>
+    );
+  }
   return (
     <StyledButtonMenu variant={variant} {...props}>
       {Children.map(children, (child: ReactElement, index) => {
